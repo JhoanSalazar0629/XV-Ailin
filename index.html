@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis 15 Años - Amanda Marian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="music-widget" onclick="toggleMusic()">
+        <i class="fa-solid fa-music"></i>
+        <span id="musicStatus">REPRODUCIR</span>
+        <audio id="audioTrack" loop>
+            <source <audio controls>
+            <source src="img/LR.mp3#t=200" type="audio/mpeg">
+        </audio>
+        </audio>
+    </div>
+
+    <div class="envelope-wrapper" id="envelope" onclick="openInvitation()">
+        <div class="seal-container">
+            <img src="img/sobre.png" alt="Sello de Gato" class="cat-seal">
+            <p class="envelope-hint">Toca para abrir</p>
+        </div>
+    </div>
+
+    <main class="main-content">
+        
+        <section class="slide bg-fondo2">
+            <div class="content-box">
+                <h3 id="nombre-invitado" class="guest-name">Cargando...</h3>
+                <p class="intro-text">¡Estás cordialmente invitado a la celebración de!</p>
+                <h1 class="main-title">Mis 15 Años</h1>
+                <h2 class="celebrant-name">Ailin Sanchez</h2>
+                
+                <div class="countdown" id="timer">
+                    <div class="time-part"><span id="days">00</span><label>Días</label></div>
+                    <div class="time-part"><span id="hours">00</span><label>Hr</label></div>
+                    <div class="time-part"><span id="minutes">00</span><label>Min</label></div>
+                    <div class="time-part"><span id="seconds">00</span><label>Seg</label></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide bg-fondo1">
+            <div class="content-box event-info-box">
+                <h1 class="welcome-title">Bienvenidos</h1>
+                <p class="welcome-poem">He aprendido que estar con quienes quiero es suficiente para ser feliz, por eso deseo que me acompañes en uno de los momentos más importantes de mi vida, algo que solo se vive una vez...</p>
+                
+                <div class="divider-line"></div>
+                
+                <h3 class="info-subtitle">¿Cuándo y Dónde?</h3>
+                
+                <div class="info-details-list">
+                    <p class="info-item">
+                        <i class="fa-solid fa-calendar-days"></i> 14 de Junio 2026
+                    </p>
+                    <p class="info-item">
+                        <i class="fa-solid fa-clock"></i> 8:00 PM
+                    </p>
+                    <p class="info-item">
+                        <i class="fa-solid fa-location-dot"></i> CS Eventos Granada <br> Calle 20 Norte #6AN 49 Barrio Granada
+                    </p>
+                </div>
+                
+                <a href="https://maps.app.goo.gl/LrPwbY5ry1QYiKkj9?g_st=aw" target="_blank" class="location-btn">
+                    VER UBICACIÓN
+                </a>
+            </div>
+        </section>
+
+        <section class="slide bg-fondo1">
+            <div class="content-box">
+                <h2 class="section-title">Momentos Especiales</h2>
+                <div class="polaroid-gallery">
+                    <div class="polaroid p-left">
+                        <div class="pin"></div>
+                        <img src="img/foto1.jpeg">
+                        
+                    </div>
+                    <div class="polaroid p-center">
+                        <div class="pin"></div>
+                        <img src="img/foto2.jpeg">
+                        
+                    </div>
+                    <div class="polaroid p-right">
+                        <div class="pin"></div>
+                        <img src="img/foto3.JPG">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide bg-fondo2">
+            <div class="rsvp-box">
+
+                <h3 class="info-subtitle"><i class="fa-solid fa-user-tie"> Traje Formal</i></h3>
+                <h3 class="info-subtitle"><i class="fa-solid fa-envelope"> Lluvia de Sobres</i></h3>
+                <br>
+                <h2 class="section-title">¿Nos acompañas?</h2>
+                <p class="rsvp-desc">Tu presencia es el mejor regalo que puedo recibir en esta noche tan especial.</p>
+                <a href="https://wa.me/573000000000?text=¡Hola!%20Confirmo%20mi%20asistencia" class="whatsapp-btn" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> CONFIRMAR ASISTENCIA
+                </a>
+                <p class="rsvp-date">Favor de confirmar antes del 1 de Junio</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+
+     
+
+
+        // ANIMACIÓN DE APERTURA DEL SOBRE
+        function openInvitation() {
+            const env = document.getElementById('envelope');
+            env.style.transform = 'translateY(-110%)';
+            env.style.opacity = '0';
+            setTimeout(() => {
+                env.style.display = 'none';
+            }, 1200);
+            toggleMusic(true);
+        }
+
+        // CAPTURA DEL INVITADO DESDE LA URL
+        function setGuest() {
+            const params = new URLSearchParams(window.location.search);
+            const guest = params.get('invitado');
+            const guestDisplay = document.getElementById('nombre-invitado');
+            guestDisplay.innerText = guest ? decodeURIComponent(guest) : "Querida Familia y Amigos";
+        }
+
+        // CONTROL DE AUDIO
+        const audio = document.getElementById('audioTrack');
+        const status = document.getElementById('musicStatus');
+        
+        function toggleMusic(forcePlay = false) {
+            if (audio.paused || forcePlay) {
+                audio.play().catch(e => console.log("Interacción requerida"));
+                status.innerText = "PAUSAR";
+            } else {
+                audio.pause();
+                status.innerText = "REPRODUCIR";
+            }
+        }
+
+        const audioTrack = document.getElementById('img/LR.mp3');
+        // Define el volumen al 50%
+        audio.volume = 0.5;
+        // ==========================================
+// 4. LÓGICA DE LA CUENTA REGRESIVA ACTUALIZADA
+// ==========================================
+// Cambiamos el año a 2026 para que el contador empiece a correr positivamente
+const target = new Date("Jun 14, 2026 20:00:00").getTime();
+
+setInterval(() => {
+    const now = new Date().getTime();
+    const diff = target - now;
+    
+    // Si la fecha ya llegó o pasó, dejamos el contador en 0 de forma limpia
+    if (diff <= 0) {
+        document.getElementById('days').innerText = 0;
+        document.getElementById('hours').innerText = 0;
+        document.getElementById('minutes').innerText = 0;
+        document.getElementById('seconds').innerText = 0;
+        return;
+    }
+    
+    // Cálculos matemáticos para el tiempo restante
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    // Renderizado en pantalla
+    document.getElementById('days').innerText = d;
+    document.getElementById('hours').innerText = h;
+    document.getElementById('minutes').innerText = m;
+    document.getElementById('seconds').innerText = s;
+}, 1000);
+
+        window.onload = setGuest;
+
+    </script>
+</body>
+</html>

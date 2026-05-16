@@ -1,0 +1,420 @@
+/* CONFIGURACIÓN Y VARIABLES GENERALES */
+:root {
+    --azul-noche: #1e3a8a;
+    --azul-acento: #3b82f6;
+    --dorado: #d4af37;
+    --texto-oscuro: #2c3e50;
+    --fondo-intermedio: #f4f7fc;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--fondo-intermedio);
+    color: var(--texto-oscuro);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* CONTENEDOR PRINCIPAL Y DISEÑO DE SECCIONES COMPLETAMENTE CENTRADAS */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.slide {
+    width: 100%;
+    max-width: 1280px; /* Tamaño ideal de tarjeta en PC */
+    min-height: 100vh; /* Se adapta verticalmente tanto en PC como en móvil */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px;
+    margin: 15px 0;
+    box-shadow: 0 15px 50px rgba(30, 58, 138, 0.08);
+    background-color: white;
+}
+
+/* CONTROL ADAPTABLE DE FONDOS */
+.bg-fondo1 {
+    background: url('img/fondo1.jpeg') center/cover no-repeat;
+}
+
+.bg-fondo2 {
+    background: url('img/fondo2.jpeg') center/cover no-repeat;
+}
+
+/* CAJA DE CONTENIDO CENTRADA INTERNA */
+.content-box, .rsvp-box {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+
+/* TIPOGRAFÍA CENTRADA Y RESPONSIVA */
+.main-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5.5rem; /* Ajuste dinámico de tipografía */
+    color: var(--azul-noche);
+    margin: 10px 0;
+    text-align: center;
+    line-height: 1.1;
+}
+
+.celebrant-name {
+    font-size: 1.6rem;
+    letter-spacing: 8px;
+    font-weight: 300;
+    color: var(--azul-noche);
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.guest-name {
+    font-size: 2.2rem;
+    color: var(--dorado);
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #576574;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: var(--azul-noche);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* CONTADOR TOTALMENTE CENTRADO Y FLEXIBLE */
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.time-part {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+    padding: 15px 5px;
+    border-radius: 12px;
+    flex: 1;
+    min-width: 75px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    text-align: center;
+}
+
+.time-part span {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--azul-noche);
+    line-height: 1.2;
+}
+
+.time-part label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #7f8c8d;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* SECCIÓN CONFIRMACIÓN (RSVP) CORREGIDA */
+.rsvp-box p {
+    font-size: 1.1rem;
+    color: #485460;
+    max-width: 550px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 35px;
+    background-color: #25d366;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
+}
+
+.rsvp-date {
+    margin-top: 20px;
+    font-size: 0.85rem !important;
+    color: #95a5a6 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* GALERÍA POLAROID ADAPTABLE */
+.polaroid-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap; /* En celulares pequeños se bajan solas de forma elegante */
+    width: 100%;
+    margin-top: 20px;
+}
+
+.polaroid {
+    background: white;
+    padding: 12px 12px 25px 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    width: 240px;
+    position: relative;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.polaroid p {
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    margin-top: 12px;
+    color: var(--azul-noche);
+    text-align: center;
+}
+
+.pin {
+    width: 16px; height: 16px;
+    background: radial-gradient(circle, #f3e09d, var(--dorado));
+    border-radius: 50%;
+    position: absolute;
+    top: -8px; left: 50%; transform: translateX(-50%);
+}
+
+.p-left { transform: rotate(-4deg); }
+.p-right { transform: rotate(4deg); }
+.p-center { z-index: 2; transform: translateY(-5deg); }
+
+/* CAPA INICIAL DEL SOBRE */
+.envelope-wrapper {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.8s;
+}
+
+.seal-container { text-align: center; padding: 20px; }
+.cat-seal { width: 100%; max-width: 260px; animation: pulse 2s infinite; }
+.envelope-hint { color: white; letter-spacing: 4px; text-transform: uppercase; font-size: 0.85rem; margin-top: 20px; }
+
+/* REPRODUCTOR FLOTANTE */
+.music-widget {
+    position: fixed; bottom: 20px; right: 20px; z-index: 3000;
+    background: white; padding: 10px 20px; border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15); border: 1px solid var(--azul-noche);
+    cursor: pointer; display: flex; align-items: center; gap: 8px;
+    font-weight: 600; color: var(--azul-noche); font-size: 0.85rem;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+}
+
+/* MEDIA QUERIES: OPTIMIZACIÓN EXCLUSIVA PARA CELULARES */
+@media (max-width: 768px) {
+
+    .bg-fondo1 {
+        background: url('img/fondo1-mobile.jpeg') center/cover no-repeat;
+    }
+
+    .bg-fondo2 {
+        background: url('img/fondo2-mobile.jpeg') center/cover no-repeat;
+    }
+    /* =============================== */
+
+    .slide {
+        margin: 0;
+        border-radius: 0;
+        min-height: 100vh;
+        padding: 60px 20px; 
+    }
+
+    .main-title {
+        font-size: 3.8rem; 
+    }
+
+    .slide {
+        margin: 0;
+        border-radius: 0;
+        min-height: 100vh;
+        padding: 60px 20px; /* Espacio extra para que no pegue a las flores */
+    }
+
+    .main-title {
+        font-size: 3.8rem; /* Letras más cómodas para pantallas verticales */
+    }
+
+    .celebrant-name {
+        font-size: 1.2rem;
+        letter-spacing: 4px;
+    }
+
+    .guest-name {
+        font-size: 1.8rem;
+    }
+
+    .countdown {
+        gap: 8px; /* Espacio compacto para evitar desbordamiento */
+    }
+
+    .time-part {
+        min-width: 65px;
+        padding: 10px 2px;
+    }
+
+    .time-part span {
+        font-size: 1.7rem;
+    }
+
+    .polaroid-gallery {
+        flex-direction: column; /* Apila las fotos una debajo de otra en móvil */
+        gap: 30px;
+    }
+
+    .polaroid {
+        transform: none !important; /* Quita las rotaciones en celular para mejor lectura */
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+/* ==========================================
+   ESTILOS PARA LA SECCIÓN RECUPERADA
+   ========================================== */
+.welcome-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    color: var(--dorado); /* Color dorado como en tu captura */
+    margin-bottom: 15px;
+}
+
+.welcome-poem {
+    font-size: 1.15rem;
+    color: #485460;
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.divider-line {
+    width: 80px;
+    height: 2px;
+    background-color: var(--dorado);
+    margin: 15px 0 25px 0;
+}
+
+.info-subtitle {
+    font-size: 1.5rem;
+    color: var(--azul-noche);
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.info-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.info-item {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.info-item i {
+    color: #e74c3c; /* Color rojo/pin suave para los iconos como tu captura */
+    font-size: 1.2rem;
+}
+
+/* Botón Dorado "Ver Ubicación" */
+.location-btn {
+    display: inline-block;
+    padding: 14px 40px;
+    background-color: var(--dorado);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 6px 15px rgba(212, 175, 55, 0.2);
+}
+
+.location-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.35);
+}
+
+/* Optimización móvil automática para esta sección */
+@media (max-width: 768px) {
+    .welcome-title {
+        font-size: 3.8rem;
+    }
+    .welcome-poem {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+    .info-item {
+        font-size: 1rem;
+    }
+}
