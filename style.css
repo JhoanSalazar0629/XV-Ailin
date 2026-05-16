@@ -418,3 +418,30 @@ body {
         font-size: 1rem;
     }
 }
+
+.indicador-deslizar {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  color: #333333; /* Cambia el color aquí */
+  margin: 20px 0;
+  
+  /* Aplica la animación llamada "parpadeo" */
+  animation: parpadeo 1.5s infinite ease-in-out;
+}
+
+.indicador-deslizar i {
+  display: block;
+  font-size: 24px; /* Tamaño de la flecha */
+  margin-top: 5px;
+}
+
+/* Reglas de la animación de parpadeo (opacidad de 100% a 20%) */
+@keyframes parpadeo {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
