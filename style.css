@@ -90,6 +90,12 @@ body {
     font-weight: 600;
     margin-bottom: 10px;
     text-align: center;
+    
+    /* --- Líneas a agregar --- */
+    display: inline-block;        /* Hace que el fondo solo ocupe el ancho del texto */
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco con 70% de opacidad */
+    padding: 5px 15px;            /* Espacio interno para que el texto respire */
+    border-radius: 8px;           /* Opcional: redondea las esquinas del fondo */
 }
 
 .intro-text {
